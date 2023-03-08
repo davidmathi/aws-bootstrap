@@ -55,6 +55,5 @@ aws cloudformation deploy \
 if [ $? -eq 0 ]; then
   aws cloudformation list-exports \
     --profile test-dmathi-aws-profile \
-    --query "Exports[?Name=='InstanceEndpoint'].Value" 
+    --query "Exports[?ends_with(Name,'LBEndpoint')].Value" 
 fi
-
